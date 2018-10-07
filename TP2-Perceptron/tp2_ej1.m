@@ -10,16 +10,19 @@ N_ENTRADAS = 4;
 %  dataset binario para 4 entradas 
 a = 0:(N_ENTRADAS^2)-1;
 data_set = de2bi(a,'left-msb');
-data_set(data_set == 0) = -1;
+data_set(data_set == 0) = -1
 
-% salidas para el dataset AND de 4 entradas
-data_set_outputs = -1 + zeros(1,N_ENTRADAS^2)';
-data_set_outputs(N_ENTRADAS^2) = 1;
+%%%%%%%% SALIDAS PARA EL DATASET (COMENTAR EL QUE NO SE USA)%%%%%%%%%%%
+
+% salidas para el dataset AND de N entradas
+% data_set_outputs = -1 + zeros(1,N_ENTRADAS^2)';
+% data_set_outputs(N_ENTRADAS^2) = 1;
+% data_set_outputs;
+
+% salidas para el dataset OR de N entradas
+data_set_outputs = ones(1,N_ENTRADAS^2)';
+data_set_outputs(1) = -1;
 data_set_outputs;
-
-%
-% FALTA IMPLEMENTAR DATA_SET_OUTPUT PARA COMPUERTA OR
-%
 
 %inicializo el perceptron.    
 W = randn(1,length(data_set(1,:))+1);
